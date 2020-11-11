@@ -1,67 +1,58 @@
-// Оголошення змінних
-const apple = 15.678;
-const avocado = 123.965;
-const cherry = 90.2345;
+const applePrice = 15.678;
+const avocadoPrice = 123.965;
+const cherryPrice = 90.2345;
 
-// Найвища ціна товару
-let maxPrice = Math.max(apple, avocado, cherry);
+const customersPay = 500;
+let priceWithDiscount;
+let profit;
+
+const maxPrice = Math.max(applePrice, avocadoPrice, cherryPrice);
+const minPrice = Math.min(applePrice, avocadoPrice, cherryPrice);
+const totalPrice = applePrice + avocadoPrice + cherryPrice;
+const intPrice = Math.floor(applePrice) + Math.floor(avocadoPrice) + Math.floor(cherryPrice);
+const approxPrice = Math.round(totalPrice/100)*100;
+const priceIsEven = intPrice%2 == 0;
+const balance = customersPay - totalPrice;
+const averagePrice = totalPrice/3;
+const randomDiscount = Math.floor(Math.random()*101);
+
 console.log(`Найвища ціна ${maxPrice}`);
-
-//  Найнижча ціна товару
-let minPrice = Math.min(apple, avocado, cherry);
 console.log(`Найнижча ціна ${minPrice}`);
-
-// Загальна ціна товарів
-let totalPrice = apple + avocado + cherry;
 console.log(`Сума ${totalPrice}`);
-
-// Загальна ціна товарів без копійок
-let intPrice = Math.floor(apple) + Math.floor(avocado) + Math.floor(cherry);
 console.log(`Сума без копійок ${intPrice}`);
-
-// Приблизна загальна ціна товарів
-let approxPrice = Math.round((apple + avocado + cherry)/100)*100;
 console.log(`Приблизна сума ${approxPrice}`);
-
-// Парне чи непарне
-let evenOrOddNumber = intPrice%2 == 0;
-console.log(`${evenOrOddNumber}`);
-
-// Решта з покупки трьох товарів
-let balance = 500 - totalPrice;
-console.log(`Решта ${balance}`);
-
-// Середня ціна товару
-let averagePrice = (apple + avocado + cherry)/3;
+console.log(`${priceIsEven}`);
+console.log(`Решта з 500 грн : ${+balance.toFixed(2)} грн`);
 console.log(`Середня ціна ${averagePrice.toFixed(2)}`);
 
-// Рандомна знижка на товар
-let randomDiscount = Math.round(Math.random()*100);
-let clientDiscount = apple - apple*randomDiscount/100;
 console.log(`Знижка становить ${randomDiscount}%.`);
-console.log(`Ціна яблук зі знижкою ${clientDiscount.toFixed(2)}`);
-clientDiscount = avocado - avocado*randomDiscount/100;
-console.log(`Ціна авокадо зі знижкою ${clientDiscount.toFixed(2)}`);
-clientDiscount = cherry - cherry*randomDiscount/100;
-console.log(`Ціна вишень зі знижкою ${clientDiscount.toFixed(2)}`);
+priceWithDiscount = applePrice - applePrice*randomDiscount/100;
+console.log(`Ціна яблук зі знижкою ${priceWithDiscount.toFixed(2)}`);
+priceWithDiscount = avocadoPrice - avocadoPrice*randomDiscount/100;
+console.log(`Ціна авокадо зі знижкою ${priceWithDiscount.toFixed(2)}`);
+priceWithDiscount = cherryPrice - cherryPrice*randomDiscount/100;
+console.log(`Ціна вишень зі знижкою ${+priceWithDiscount.toFixed(2)}`);
+priceWithDiscount = totalPrice - totalPrice*randomDiscount/100;
+console.log(`Ціна всіх товарів зі знижкою ${priceWithDiscount.toFixed(2)}`);
 
-// Прибуток від продажу товару при рандомній знижці на нього
-let profit = apple/2 - apple*randomDiscount/100;
-console.log(`Прибуток від продажу яблук ${profit.toFixed(2)}`);
-profit = avocado/2 - avocado*randomDiscount/100;
-console.log(`Прибуток від продажу авокадо ${profit.toFixed(2)}`);
-profit = cherry/2 - cherry*randomDiscount/100;
-console.log(`Прибуток від продажу вишень ${profit.toFixed(2)}`);
+profit = applePrice/2 - applePrice*randomDiscount/100;
+console.log(`Прибуток від продажу яблук ${+profit.toFixed(2)}`);
+profit = avocadoPrice/2 - avocadoPrice*randomDiscount/100;
+console.log(`Прибуток від продажу авокадо ${+profit.toFixed(2)}`);
+profit = cherryPrice/2 - cherryPrice*randomDiscount/100;
+console.log(`Прибуток від продажу вишень ${+profit.toFixed(2)}`);
+profit = totalPrice/2 - totalPrice*randomDiscount/100;
+console.log(`Прибуток від продажу всіх товарів ${+profit.toFixed(2)}`);
 
-console.log(`Найвища ціна ${maxPrice},
-Найнижча ціна ${minPrice},
-Сума ${totalPrice},
-Сума без копійок ${intPrice},
-Приблизна сума ${approxPrice},
-Число парне? - ${evenOrOddNumber},
-Решта з 500 : ${balance},
-Середня ціна ${averagePrice.toFixed(2)},
+
+console.log(`Найвища ціна ${maxPrice} грн,
+Найнижча ціна ${minPrice} грн,
+Сума ${totalPrice} грн,
+Сума без копійок ${intPrice} грн,
+Приблизна сума ${approxPrice} грн,
+Число парне? - ${priceIsEven},
+Решта з 500 грн: ${+balance.toFixed(2)} грн,
+Середня ціна ${+averagePrice.toFixed(2)} грн,
 Знижка становить ${randomDiscount}%,
-Ціна яблук зі знижкою ${clientDiscount.toFixed(2)},
-Прибуток від продажу яблук ${profit.toFixed(2)}`)
-
+Ціна всіх товарів зі знижкою ${+priceWithDiscount.toFixed(2)} грн,
+Прибуток від продажу всіх товарів ${+profit.toFixed(2)} грн`)
