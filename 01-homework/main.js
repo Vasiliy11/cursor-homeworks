@@ -3,8 +3,6 @@ const avocadoPrice = 123.965;
 const cherryPrice = 90.2345;
 
 const customersPay = 500;
-let priceWithDiscount;
-let profit;
 
 const maxPrice = Math.max(applePrice, avocadoPrice, cherryPrice);
 const minPrice = Math.min(applePrice, avocadoPrice, cherryPrice);
@@ -26,7 +24,7 @@ console.log(`Решта з 500 грн : ${+balance.toFixed(2)} грн`);
 console.log(`Середня ціна ${averagePrice.toFixed(2)}`);
 
 console.log(`Знижка становить ${randomDiscount}%.`);
-priceWithDiscount = applePrice - applePrice*randomDiscount/100;
+let priceWithDiscount = applePrice - applePrice*randomDiscount/100;
 console.log(`Ціна яблук зі знижкою ${priceWithDiscount.toFixed(2)}`);
 priceWithDiscount = avocadoPrice - avocadoPrice*randomDiscount/100;
 console.log(`Ціна авокадо зі знижкою ${priceWithDiscount.toFixed(2)}`);
@@ -35,7 +33,7 @@ console.log(`Ціна вишень зі знижкою ${+priceWithDiscount.toFi
 priceWithDiscount = totalPrice - totalPrice*randomDiscount/100;
 console.log(`Ціна всіх товарів зі знижкою ${priceWithDiscount.toFixed(2)}`);
 
-profit = applePrice/2 - applePrice*randomDiscount/100;
+let profit = applePrice/2 - applePrice*randomDiscount/100;
 console.log(`Прибуток від продажу яблук ${+profit.toFixed(2)}`);
 profit = avocadoPrice/2 - avocadoPrice*randomDiscount/100;
 console.log(`Прибуток від продажу авокадо ${+profit.toFixed(2)}`);
