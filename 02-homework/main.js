@@ -14,7 +14,7 @@ const passEvenNumbers = confirm("Пропускати парні числа?");
 
 let sumOfNumbers = 0;
 for (let i = firstNumber; i <= lastNumber; i++) {
-    if (i%2===1 && passEvenNumbers === true) {
+    if ((i%2===1 || i%2===-1) && passEvenNumbers === true) {
         sumOfNumbers += i;
     } else if (passEvenNumbers === false){
         sumOfNumbers +=i;
