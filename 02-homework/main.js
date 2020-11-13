@@ -8,13 +8,13 @@ do {
     
 do{
     lastNumber = +prompt('Введіть кінцеве значення');
-} while (lastNumber <= firstNumber || isNaN(lastNumber) || Number.isInteger(lastNumber) === false)
+} while (lastNumber <= firstNumber || isNaN(lastNumber) || Number.isInteger(lastNumber) === false || lastNumber === '')
 
 const passEvenNumbers = confirm("Пропускати парні числа?");
 
 let sumOfNumbers = 0;
 for (let i = firstNumber; i <= lastNumber; i++) {
-    if (i%2===1 && passEvenNumbers === true) {
+    if ((i%2===1 || i%2===-1) && passEvenNumbers === true) {
         sumOfNumbers += i;
     } else if (passEvenNumbers === false){
         sumOfNumbers +=i;
