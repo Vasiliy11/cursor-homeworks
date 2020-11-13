@@ -8,7 +8,7 @@ do {
     
 do{
     lastNumber = +prompt('Введіть кінцеве значення');
-} while (lastNumber <= firstNumber || isNaN(lastNumber) || Number.isInteger(lastNumber) === false || lastNumber === '')
+} while (lastNumber <= firstNumber || isNaN(lastNumber) || Number.isInteger(lastNumber) === false)
 
 const passEvenNumbers = confirm("Пропускати парні числа?");
 
