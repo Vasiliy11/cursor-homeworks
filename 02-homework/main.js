@@ -4,11 +4,11 @@ let lastNumber;
 
 do {
     firstNumber = +prompt('Введіть початкове значення');
-} while (isNaN(firstNumber) || Number.isInteger(firstNumber) === false)
+} while (Number.isInteger(firstNumber) === false)
     
 do{
     lastNumber = +prompt('Введіть кінцеве значення');
-} while (lastNumber <= firstNumber || isNaN(lastNumber) || Number.isInteger(lastNumber) === false)
+} while (lastNumber <= firstNumber || Number.isInteger(lastNumber) === false)
 
 const passEvenNumbers = confirm("Пропускати парні числа?");
 
@@ -26,7 +26,7 @@ console.log(`Перше число: ${firstNumber}
 Пропускати парні числа?: ${passEvenNumbers}
 Сума чисел: ${sumOfNumbers}`)
 
-document.write(`Перше число: ${firstNumber} <br>
+document.writeln(`Перше число: ${firstNumber} <br>
 Останнє число: ${lastNumber} <br>
 Пропускати парні числа?: ${passEvenNumbers} <br>
 Сума чисел: ${sumOfNumbers}`)
