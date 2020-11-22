@@ -6,11 +6,9 @@ const themes = [
 ];
 const marks = [4, 5, 5, 3, 4, 5];
 
-const pairs = [];
-const group = [];
-
 // Завдання 1
 const pairStudents = (arr) => {
+  const pairs = [];
   for (let i = 0; i < arr.length; i += 2) {
     pairs.push(arr.slice(i, i + 2));
   }
@@ -20,14 +18,16 @@ const pairStudents = (arr) => {
 const pairsOfStudents = pairStudents(students);
 
 // Завдання 2
-const learnTheme = function (arrTheme) {
+const learnTheme = function (arrTheme, arrPairs) {
+  const group = [];
+  const newPairs = arrPairs.slice();
   for (let i = 0; i < arrTheme.length; i++) {
-    group.push([pairs[i].join(' i '), arrTheme[i]]);
+    group.push([newPairs[i].join(' i '), arrTheme[i]]);
   }
   return group;
 };
 
-const groups = learnTheme(themes);
+const groups = learnTheme(themes, pairsOfStudents);
 
 // Завдання 3
 const rateStudents = function (arrStudents, arrMarks) {
