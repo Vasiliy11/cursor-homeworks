@@ -80,7 +80,7 @@ const exchangeCurrency =  function (param) {
   const $toUAH = 28;
   result = null;
   do {
-      param = prompt('Введіть валюту для конвертації');
+      param = prompt('Введіть валюту для конвертації').toLowerCase();
   } while ((param.indexOf('uah') === -1) && (param.indexOf('$') === -1) || isNaN(parseFloat(param)))
   if(param.includes('uah')) {
       result = parseFloat(param)*uahTo$; 
