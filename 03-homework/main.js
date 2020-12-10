@@ -1,73 +1,36 @@
 // Максимальна цифра в числі
-const getMaxDigit = function (number) {
-  do {
-    number = +prompt('Введіть число');
-  } while (isNaN(number));
-  number = number.toString();
-  let maxItem = +number[0];
-  for (num of number) {
-    if (+num > maxItem) {
-      maxItem = +num;
-    }
-  }
-  return maxItem;
-};
+const getMaxDigit = (number) =>
+  Math.max(...Array.from(String(number)).map((item) => parseInt(item)));
 
 // Ступінь числа
-const powerOfNumber = function(baseNumber, powerNumber) {
-  do {
-   baseNumber = +prompt('Введіть число, яке потрібно піднести до степеня');
-   powerNumber = +prompt('Введіть степінь, до якого потрібно піднести попереднє число');
-  } while (isNaN(baseNumber) && isNaN(powerNumber));
+const powerOfNumber = (baseNumber, powerNumber) => {
   let result = 1;
-  for( i = 1; i <= Math.abs(powerNumber); i++) {
-    if( powerNumber < 0) {
-      result = result/baseNumber
-    } else {
-      result *= baseNumber
-    }
+  for (i = 1; i <= Math.abs(powerNumber); i++) {
+    powerNumber < 0 ? (result = result / baseNumber) : (result *= baseNumber);
   }
-  return result  
-}
-
-
-// Слово з великої літери
-const formatName = function (name) {
-  name = prompt("Введіть ім'я");
-  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  return result;
 };
 
+// Слово з великої літери
+const formatName = (name) =>
+  name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 
 // Зарплата без податку
-const calculateSalary = function (salary) {
-  do {
-    salary = +prompt('Введіть зарплату');
-  } while (isNaN(salary));
+const calculateSalary = (salary) => {
   const tax = 19.5;
   return +(salary * (1 - tax / 100)).toFixed(2);
 };
 
-
 // Рандомне число
-const getRandomNumber = function (min, max) {
-  do {
-    min = +prompt('Введіть мінімальне значення');
-  } while (isNaN(min));
-
-  do {
-    max = +prompt('Введіть максимальне значення');
-  } while (max <= min || isNaN(max));
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
-
+const getRandomNumber = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
 
 // Кількість повторень букви у реченні
-const countLetter = function (letter, str) {
-  letter = prompt('Введіть букву, чию кількість треба порахувати');
-  str = prompt('Введіть речення');
+const countLetter = (letter, str) => {
   let count = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === letter) {
+  str = str.toLowerCase();
+  for (let item of str) {
+    if (item === letter) {
       count++;
     }
   }
@@ -75,53 +38,44 @@ const countLetter = function (letter, str) {
 };
 
 // Конвертер валют
-const exchangeCurrency =  function (param) {
-  const uahTo$ = 1/28;
-  const $toUAH = 28;
-  result = null;
-  do {
-      param = prompt('Введіть валюту для конвертації').toLowerCase();
-  } while ((param.indexOf('uah') === -1) && (param.indexOf('$') === -1) || isNaN(parseFloat(param)))
-  if(param.includes('uah')) {
-      result = parseFloat(param)*uahTo$; 
-  } else if (param.includes('$')) {
-      result = parseFloat(param)*$toUAH
-  }
-  return result
-}
+const exchangeCurrency = (amount) => {
+  const exchangeRate = 28;
+  const dollarSign = '$';
+  const uahSign = 'uah';
+
+  if (amount.includes(dollarSign)) {
+    return amount.replace(dollarSign, '') * exchangeRate;
+  } else if (amount.toLowerCase().includes(uahSign)) {
+    return amount.replace(uahSign, '') / exchangeRate;
+  } else throw new Error('Not supported currency');
+};
 
 // Генератор пароля
-
-const getRandomPassword = function (num) {
-  do {
-    num = +prompt('Введіть число для генерації пароля', 8);
-  } while (!Number.isInteger(num));
-	let password = '';
-	if (num === 0) {
-    num = 8;
+const getRandomPassword = (passLength) => {
+  let password = '';
+  if (!passLength) {
+    passLength = 8;
   }
-	for (let i = 1; i <= num; i++){
-		password += Math.floor(Math.random()*10);
-	}
-	return password;
-}
+  for (let i = 1; i <= passLength; i++) {
+    password += Math.floor(Math.random() * 10);
+  }
+
+  return password;
+};
 
 // Паліндром
-const isPalindrom = function (str) {
-  str = prompt('Введіть фразу, яку потрібно перевірити, чи вона паліндром');
+const isPalindrom = (str) => {
   str = str.toLowerCase().replaceAll(' ', '');
   let strReverse = str.split('').reverse().join('');
   return strReverse === str;
 };
 
-
-
-document.writeln(`Функція №1: максимальна цифра: ${getMaxDigit()} <br>
-Функція №2: число пднесене до степеня: ${powerOfNumber()} <br>
-Функція №3: правильно написане ім\'я: ${formatName()} <br>
-Функція №4: чиста зарплата: ${calculateSalary()} <br>
-Функція №5: рандомне число в заданому діапазоні: ${getRandomNumber()} <br>
-Функція №6: кількість літер у реченні: ${countLetter()} <br>
-Функція №7: конвертована валюта: ${exchangeCurrency()} <br>
-Функція №8: ваш пароль: ${getRandomPassword()} <br>
-Функція №10: чи є фраза паліндромом?  - ${isPalindrom()}`);
+document.writeln(`Функція №1: максимальна цифра: ${getMaxDigit(514952)} <br>
+Функція №2: число пднесене до степеня: ${powerOfNumber(-2, 3)} <br>
+Функція №3: правильно написане ім\'я: ${formatName('jOhN')} <br>
+Функція №4: чиста зарплата: ${calculateSalary(1000)} <br>
+Функція №5: рандомне число в заданому діапазоні: ${getRandomNumber(5, 15)} <br>
+Функція №6: кількість літер у реченні: ${countLetter('t', 'Ten letters')} <br>
+Функція №7: конвертована валюта: ${exchangeCurrency('$1000')} <br>
+Функція №8: ваш пароль: ${getRandomPassword(10)} <br>
+Функція №10: чи є фраза паліндромом?  - ${isPalindrom('avalava')}`);
