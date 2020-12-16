@@ -29,21 +29,27 @@ const students = [
 ];
 
 // Функція 1
-const getSubjects = ({ subjects }) => {
-  return Object.keys(subjects).map(
+const getSubjects = ({ subjects }) =>
+  Object.keys(subjects).map(
     (subject) =>
       subject[0].toUpperCase() +
       subject.slice(1).toLowerCase().replace('_', ' ')
   );
-};
 
-// Функція 2
+// Функція 2 
 const getAverageMark = ({ subjects }) => {
   const marks = Object.values(subjects).flat();
-  let sumOfMarks = 0;
-  marks.forEach((mark) => (sumOfMarks += mark));
-  return +(sumOfMarks / marks.length).toFixed(2);
+  // Переробив на варіант з reduce
+  return +(marks.reduce((total, mark) => total + mark,0) / marks.length).toFixed(2);
 };
+
+// Функція 2 V2 - Це дещо розширений варіант (так я зрозумів твою пораду щодо виконання завдання))
+const getAverageMarkV2 = ({ subjects }) => {
+  const avMarkOfSubject = Object.fromEntries(Object.entries(subjects).map(([key, value]) => [key, value.reduce((total, mark) => total + mark, 0) / value.length]))
+  console.log(avMarkOfSubject)
+  return avMark = +(Object.values(avMarkOfSubject).reduce((total, mark) => total + mark, 0) / Object.values(avMarkOfSubject).length).toFixed(2)
+}
+  
 
 // Функція 3
 const getStudentInfo = (student) => {
@@ -84,6 +90,7 @@ const calculateWordLetters = (word) => {
 
 console.log(getSubjects(students[0]));
 console.log(getAverageMark(students[0]));
+console.log(getAverageMarkV2(students[0]));
 console.log(getStudentInfo(students[0]));
 console.log(getStudentsNames(students));
 console.log(getBestStudent(students));
