@@ -19,22 +19,24 @@ const getTotalTaxes = function () {
 
 // Функція 4
 const getMySalary = function () {
-  const minSalary = 1500;
-  const maxSalary = 2000;
-  const salary = Math.floor(
-    Math.random() * (maxSalary - minSalary + 1) + minSalary
-  );
-  const taxes = +getMyTaxes.call(this, salary).toFixed(2);
-  const profit = +(salary - taxes).toFixed(2);
-  const randomSalary = {
-    salary,
-    taxes,
-    profit,
-  };
-  console.log(randomSalary);
+  setInterval(() => {
+    const minSalary = 1500;
+    const maxSalary = 2000;
+    const salary = Math.floor(
+      Math.random() * (maxSalary - minSalary + 1) + minSalary
+    );
+    const taxes = +getMyTaxes.call(this, salary).toFixed(2);
+    const profit = +(salary - taxes).toFixed(2);
+    const randomSalary = {
+      salary,
+      taxes,
+      profit,
+    };
+    console.log(randomSalary);
+  }, 10000);
 };
 
 console.log(`Податок в Україні: ${getMyTaxes.call(ukraine, 10000)}`);
 console.log(`Середній податок в Україні: ${getMiddleTaxes.call(ukraine)}`);
 console.log(`Сума податків в Україні: ${getTotalTaxes.call(ukraine)}`);
-setInterval(() => getMySalary.call(ukraine), 10000);
+getMySalary.call(ukraine);
