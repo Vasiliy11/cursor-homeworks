@@ -1,9 +1,20 @@
-const keys = document.querySelector('.keys');
-const keypress = document.querySelector('.key');
-const intBtn = document.querySelector('.create-interval-blocks');
+const keys = document.querySelectorAll('.key');
 
-function playSound() {
-  return;
+function playSound(e) {
+  const attr = e.code ? e.code : this.getAttribute('data-key');
+  document.querySelector(`[data-key="${attr}"]`).classList.add('play');
+  document.querySelector(`audio[data-key="${attr}"]`).currentTime = 0;
+  document.querySelector(`audio[data-key="${attr}"]`).play();
 }
 
-keypress.addEventListener('keydown', playSound);
+function stopPlay(e) {
+  const attr = e.code ? e.code : this.getAttribute('data-key');
+  document.querySelector(`[data-key="${attr}"]`).classList.remove('play');
+}
+
+keys.forEach((key) => {
+  key.addEventListener('click', playSound);
+  key.addEventListener('mouseout', stopPlay);
+});
+document.addEventListener('keydown', playSound);
+document.addEventListener('keyup', stopPlay);
