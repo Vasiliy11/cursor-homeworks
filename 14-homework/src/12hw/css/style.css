@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Star Jedi';
+  src: url(../fonts/Starjhol.ttf);
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.sw-wrapper{
+  background: url(../images/bg-sw.jpg) no-repeat center / cover;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.title{
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 72px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-weight: 700;
+  font-family: 'Star Jedi';
+
+}
+
+.buttons{
+  text-align: center;
+}
+
+label{
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.results{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.card{
+  max-width: 220px;
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  margin: 20px;
+  padding: 25px 20px;
+}
+
+.card-title{
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.card p{
+  margin-bottom: 15px;
+  font-size: 18px;
+}

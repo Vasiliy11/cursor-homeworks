@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpack-hw</title>
+  </head>
+  <body>
+    <div class="sounds-wrapper">
+      <div class="keys">
+        <div class="key" data-key="KeyZ">Z</div>
+        <div class="key" data-key="KeyX">X</div>
+        <div class="key" data-key="KeyC">C</div>
+        <div class="key" data-key="KeyV">V</div>
+        <div class="key" data-key="KeyB">B</div>
+        <div class="key" data-key="KeyN">N</div>
+        <div class="key" data-key="KeyM">M</div>
+      </div>
+
+      <audio data-key="KeyZ" src="sounds/SoundZ.mp3"></audio>
+      <audio data-key="KeyX" src="sounds/SoundX.mp3"></audio>
+      <audio data-key="KeyC" src="sounds/SoundC.mp3"></audio>
+      <audio data-key="KeyV" src="sounds/SoundV.mp3"></audio>
+      <audio data-key="KeyB" src="sounds/SoundB.mp3"></audio>
+      <audio data-key="KeyN" src="sounds/SoundN.mp3"></audio>
+      <audio data-key="KeyM" src="sounds/SoundM.mp3"></audio>
+    </div>
+
+    <div class="sw-wrapper">
+      <h1 class="title">star wars</h1>
+      <input type="radio" name="options" id="planets" hidden />
+      <input type="radio" name="options" id="people" hidden />
+      <div class="buttons">
+        <label for="people" class="btn">People</label>
+        <label for="planets" class="btn">Planets</label>
+      </div>
+      <section class="results"></section>
+    </div>
+  </body>
+</html>
